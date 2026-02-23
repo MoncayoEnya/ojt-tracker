@@ -1,0 +1,98 @@
+/* ============================================================
+   src/styles/global.css
+   Global reset, fonts, variables, and base styles
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap');
+
+/* ── RESET ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── CSS VARIABLES ───────────────────────────────────────── */
+:root {
+  --bg:          #060b14;
+  --surface:     #0c1829;
+  --surface2:    #080f1e;
+  --border:      #132035;
+  --border2:     #0d1f38;
+
+  --text:        #e2e8f0;
+  --text-muted:  #3d5470;
+  --text-dim:    #2d4460;
+
+  --accent:      #38bdf8;
+  --accent2:     #818cf8;
+
+  --ok:          #4ade80;
+  --ok-bg:       rgba(74, 222, 128, 0.07);
+  --ok-glow:     rgba(74, 222, 128, 0.25);
+
+  --warning:     #fbbf24;
+  --warning-bg:  rgba(251, 191, 36, 0.07);
+  --warning-glow:rgba(251, 191, 36, 0.25);
+
+  --critical:    #f87171;
+  --critical-bg: rgba(248, 113, 113, 0.07);
+  --critical-glow:rgba(248, 113, 113, 0.30);
+
+  --done:        #a78bfa;
+  --done-bg:     rgba(167, 139, 250, 0.07);
+  --done-glow:   rgba(167, 139, 250, 0.20);
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  --radius-sm:  6px;
+  --radius-md:  8px;
+  --radius-lg:  14px;
+  --radius-xl:  16px;
+}
+
+/* ── BASE ────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+}
+
+input {
+  font-family: var(--font-display);
+}
+
+/* ── SCROLLBAR ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── DATE PICKER ICON ────────────────────────────────────── */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
+  cursor: pointer;
+}
+
+/* ── ANIMATIONS ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1;    }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
